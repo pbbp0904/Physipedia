@@ -1,6 +1,6 @@
-from physipedia import Lensing
+from physipedia.lensing import Lensing
 
 
-def getObservations(world):
-    observation = Lensing.doLensing()
+def get_observations():
+    observation = Lensing.do_lensing()
     return None

@@ -1,3 +1,0 @@
-def doLensing():
-
-    return None
