@@ -52,9 +52,9 @@ def change_points(render_method='interp', verbose=0):
                 sky_grid[x, y][0] %= sky_size[0]
                 sky_grid[x, y][1] %= sky_size[1]
                 interp1 = cmb[math.floor(sky_grid[x, y][0]), math.floor(sky_grid[x, y][1])]
-                interp2 = cmb[math.ceil(sky_grid[x, y][0]), math.floor(sky_grid[x, y][1])]
-                interp3 = cmb[math.floor(sky_grid[x, y][0]), math.ceil(sky_grid[x, y][1])]
-                interp4 = cmb[math.ceil(sky_grid[x, y][0]), math.ceil(sky_grid[x, y][1])]
+                interp2 = cmb[math.ceil(sky_grid[x, y][0]) % sky_size[0], math.floor(sky_grid[x, y][1])]
+                interp3 = cmb[math.floor(sky_grid[x, y][0]), math.ceil(sky_grid[x, y][1]) % sky_size[1]]
+                interp4 = cmb[math.ceil(sky_grid[x, y][0]) % sky_size[0], math.ceil(sky_grid[x, y][1]) % sky_size[1]]
                 interp1_2 = interp1 * (1 - (sky_grid[x, y][0] % 1)) + interp2 * (sky_grid[x, y][0] % 1)
                 interp3_4 = interp3 * (1 - (sky_grid[x, y][0] % 1)) + interp4 * (sky_grid[x, y][0] % 1)
                 cmb_ren[x, y] = interp1_2 * (1 - (sky_grid[x, y][1] % 1)) + interp3_4 * (sky_grid[x, y][1] % 1)
